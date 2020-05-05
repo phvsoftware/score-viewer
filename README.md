@@ -2,4 +2,6 @@
 
 Site exemple pour afficher les scores d'un jeu en utilisant l'`API game-score-server`
 
+Le site est disponible sur https://phv-score-viewer.netlify.app/
+
 ![Capture](https://user-images.githubusercontent.com/47943684/81065343-9232b480-8edb-11ea-82b6-d476b616aa38.png)
