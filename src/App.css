@@ -1,4 +1,8 @@
-.app {
+body {
+  background-color: #000;
+}
+
+.app-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,6 +10,7 @@
   background-image: url("./assets/skyBackground2.png");
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
 }
 
 .title {
@@ -15,15 +20,37 @@
   font-size: 10vmin;
 }
 
-.scores-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  border: 1px solid aliceblue;
-  border-radius: 20px;
-  font-size: 2vmin;
+.little-title {
+  margin-top: 4vmin;
+  font-size: 4vmin;
+}
+
+@media (max-width: 560px) {
+  .scores-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border: 1px solid aliceblue;
+    border-radius: 10px;
+    font-size: 2vmin;
+    margin-bottom: 5vmin;
+  }
+}
+
+@media (min-width: 560px) {
+  .scores-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border: 1px solid aliceblue;
+    border-radius: 20px;
+    font-size: 2vmin;
+    margin-bottom: 5vmin;
+  }
 }
 
 .scores-center {
@@ -32,6 +59,13 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.scores-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .scores-img-container {
@@ -109,4 +143,8 @@ th:first-child {
 
 .text-color {
   color: aliceblue;
+}
+
+.scores-hseparator {
+  margin-bottom: 4vmin;
 }
