@@ -10,48 +10,33 @@ export default class App extends Component {
     };
     this.gameName = "SpaceInvaders";
     this.gameTitle = "Space Invaders";
-    this.playerKey = "::SpaceInvaders::PlayerID";
     this.backURL = "https://phv-gamescoreserver.herokuapp.com";
-    this.playerID = "";
+    this.playerID = "w2U0VHNTG4xGzugz";
   }
 
   componentDidMount() {
-    this.playerID = this.loadPlayerID();
     this.loadScoresAsync().then((scores) => {
       this.setState({ scores: scores });
     });
   }
 
-  loadPlayerID() {
-    const id = localStorage.getItem(this.playerKey);
-    if (id && id !== "undefined") {
-      return id;
-    } else {
-      return "";
-    }
-  }
-
   loadScoresAsync() {
     return new Promise((resolve, reject) => {
       let url = this.backURL;
-      if (this.playerID) {
-        url += `/score?playerID=${this.playerID}&gameName=${this.gameName}&pageStart=0&pageLength=100`;
-        axios
-          .get(url)
-          .then((response) => {
-            const scores = response.data;
-            if (scores) {
-              resolve(scores);
-            }
-          })
-          .catch((error) => {
-            const message =
-              error.response && error.response.data && error.response.data.message
-                ? error.response.data.message
-                : error;
-            reject(message);
-          });
-      }
+      url += `/score?playerID=${this.playerID}&gameName=${this.gameName}&pageStart=0&pageLength=100`;
+      axios
+        .get(url)
+        .then((response) => {
+          const scores = response.data;
+          if (scores) {
+            resolve(scores);
+          }
+        })
+        .catch((error) => {
+          const message =
+            error.response && error.response.data && error.response.data.message ? error.response.data.message : error;
+          reject(message);
+        });
     });
   }
 
