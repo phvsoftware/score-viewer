@@ -148,3 +148,120 @@ th:first-child {
 .scores-hseparator {
   margin-bottom: 4vmin;
 }
+
+/* ********************************************** Animation de chargement ******************************************** */
+
+.anim-container {
+  margin-top: 10%;
+  width: 20%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.anim-wrapper {
+  width: 100%;
+  background-color: lightblue;
+  position: absolute;
+  border-radius: 100px;
+}
+
+.anim-rotate {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.anim-alienrotate {
+  width: 100px;
+  height: 100px;
+}
+
+.anim-alien-sprite1 {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  animation: alternatealien1 1s infinite;
+}
+
+@keyframes alternatealien1 {
+  0% {
+    background-image: url("./assets/spriteAlien1_1.png");
+  }
+  100% {
+    background-image: url("./assets/spriteAlien1_2.png");
+  }
+}
+
+.anim-alien-sprite2 {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  animation: alternatealien2 1s infinite;
+}
+
+@keyframes alternatealien2 {
+  0% {
+    background-image: url("./assets/spriteAlien2_1.png");
+  }
+  100% {
+    background-image: url("./assets/spriteAlien2_2.png");
+  }
+}
+
+.alien1 {
+  animation: circle1 4s infinite linear;
+}
+
+.alien1 .anim-alienrotate {
+  animation: ccircle1 4s infinite linear;
+}
+
+@keyframes circle1 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes ccircle1 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+
+.alien2 {
+  animation: circle2 4s infinite linear;
+}
+
+.alien2 .anim-alienrotate {
+  animation: ccircle2 4s infinite linear;
+}
+
+@keyframes circle2 {
+  from {
+    transform: rotateZ(180deg);
+  }
+  to {
+    transform: rotateZ(540deg);
+  }
+}
+
+@keyframes ccircle2 {
+  from {
+    transform: rotateZ(-180deg);
+  }
+  to {
+    transform: rotateZ(-540deg);
+  }
+}

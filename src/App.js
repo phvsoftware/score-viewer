@@ -7,6 +7,7 @@ export default class App extends Component {
     super();
     this.state = {
       scores: [],
+      isLoading: true,
     };
     this.gameName = "SpaceInvaders";
     this.gameTitle = "Space Invaders";
@@ -16,7 +17,7 @@ export default class App extends Component {
 
   componentDidMount() {
     this.loadScoresAsync().then((scores) => {
-      this.setState({ scores: scores });
+      this.setState({ scores: scores, isLoading: false });
     });
   }
 
@@ -62,7 +63,23 @@ export default class App extends Component {
     return (
       <div className="app-container">
         <div className="title text-color scores-hseparator">Scores {this.gameTitle}</div>
-        {this.state.scores.length > 0 ? (
+        {this.state.isLoading ? (
+          <div className="anim-container">
+            <div className="text-color">Chargement en cours...</div>
+            <div className="anim-wrapper">
+              <div class="anim-rotate alien1">
+                <div class="anim-alienrotate">
+                  <div class="anim-alien-sprite1"></div>
+                </div>
+              </div>
+              <div class="anim-rotate alien2">
+                <div class="anim-alienrotate">
+                  <div class="anim-alien-sprite2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : this.state.scores.length > 0 ? (
           <table className="scores-container">
             <thead className="scores-full-width">
               <tr className="scores-center scores-full-width scores-height-title text-color">
@@ -80,7 +97,7 @@ export default class App extends Component {
             </tbody>
           </table>
         ) : (
-          <div className="text-color">Chargement en cours...</div>
+          <div className="text-color">Pas de scores :(</div>
         )}
       </div>
     );
