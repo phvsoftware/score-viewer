@@ -42,21 +42,23 @@ export default class App extends Component {
   }
 
   renderScoreLine(score, index, length) {
-    const formatedScore = score.highScore
-      .toString()
-      .replace(/(\d)(?=(?:[0-9]{3})+\b)/g, "$1 ") // ajout un espace tous les 3 caractères en partant de la fin
-      .trim();
-    return (
-      <tr key={index} className="scores-center scores-full-width scores-height-cell text-color">
-        <td className="scores-center scores-full-width scores-height-cell">{score.rank}</td>
-        <td className="scores-center scores-full-width scores-height-cell">{score.playerName}</td>
-        <td className="scores-center scores-full-width scores-height-cell">{formatedScore}</td>
-        <td className="scores-center scores-full-width scores-height-cell">{score.highStage}</td>
-        <td className="scores-center scores-full-width scores-height-cell scores-img-container">
-          {score.screenshot && <img src={score.screenshot} alt="miniature" className="scores-img" />}
-        </td>
-      </tr>
-    );
+    if (score && score.highScore && score.rank && score.playerName && score.highStage) {
+      const formatedScore = score.highScore
+        .toString()
+        .replace(/(\d)(?=(?:[0-9]{3})+\b)/g, "$1 ") // ajout un espace tous les 3 caractères en partant de la fin
+        .trim();
+      return (
+        <tr key={index} className="scores-center scores-full-width scores-height-cell text-color">
+          <td className="scores-center scores-full-width scores-height-cell">{score.rank}</td>
+          <td className="scores-center scores-full-width scores-height-cell">{score.playerName}</td>
+          <td className="scores-center scores-full-width scores-height-cell">{formatedScore}</td>
+          <td className="scores-center scores-full-width scores-height-cell">{score.highStage}</td>
+          <td className="scores-center scores-full-width scores-height-cell scores-img-container">
+            {score.screenshot && <img src={score.screenshot} alt="miniature" className="scores-img" />}
+          </td>
+        </tr>
+      );
+    }
   }
 
   render() {
@@ -67,14 +69,14 @@ export default class App extends Component {
           <div className="anim-container">
             <div className="text-color">Chargement en cours...</div>
             <div className="anim-wrapper">
-              <div class="anim-rotate alien1">
-                <div class="anim-alienrotate">
-                  <div class="anim-alien-sprite1"></div>
+              <div className="anim-rotate alien1">
+                <div className="anim-alienrotate">
+                  <div className="anim-alien-sprite1"></div>
                 </div>
               </div>
-              <div class="anim-rotate alien2">
-                <div class="anim-alienrotate">
-                  <div class="anim-alien-sprite2"></div>
+              <div className="anim-rotate alien2">
+                <div className="anim-alienrotate">
+                  <div className="anim-alien-sprite2"></div>
                 </div>
               </div>
             </div>
