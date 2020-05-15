@@ -45,7 +45,7 @@ export default class App extends Component {
     if (score && score.highScore && score.rank && score.playerName && score.highStage) {
       const formatedScore = score.highScore
         .toString()
-        .replace(/(\d)(?=(?:[0-9]{3})+\b)/g, "$1 ") // ajout un espace tous les 3 caractères en partant de la fin
+        .replace(/(\d)(?=(?:[0-9]{3})+\b)/g, "$1 ") // ajoute un espace tous les 3 caractères en partant de la fin
         .trim();
       return (
         <tr key={index} className="scores-center scores-full-width scores-height-cell text-color">

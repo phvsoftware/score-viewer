@@ -191,8 +191,11 @@ th:first-child {
   0% {
     background-image: url("./assets/spriteAlien1_1.png");
   }
-  100% {
+  50% {
     background-image: url("./assets/spriteAlien1_2.png");
+  }
+  100% {
+    background-image: url("./assets/spriteAlien1_1.png");
   }
 }
 
@@ -209,8 +212,11 @@ th:first-child {
   0% {
     background-image: url("./assets/spriteAlien2_1.png");
   }
-  100% {
+  50% {
     background-image: url("./assets/spriteAlien2_2.png");
+  }
+  100% {
+    background-image: url("./assets/spriteAlien2_1.png");
   }
 }
 
